@@ -37,4 +37,3 @@ nb-configuration.xml
 
 # Plugin directory
 /.quarkus/cli/plugins/
-/src/main/java/io/jira/mongo/MongoUtils.java
