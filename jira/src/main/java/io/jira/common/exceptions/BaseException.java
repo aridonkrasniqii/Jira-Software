@@ -1,5 +1,7 @@
 package io.jira.common.exceptions;
 
+import io.jira.common.utils.LanguageUtils;
+
 import java.util.Locale;
 
 import static io.jira.common.utils.Utils.isBlank;
@@ -54,6 +56,10 @@ public class BaseException extends Exception {
         return messageKey;
     }
 
+    public String getError_code() {
+        return error_code;
+    }
+
     public BaseException withMessage(String message) {
         this.message = message;
         return this;
@@ -67,5 +73,13 @@ public class BaseException extends Exception {
     public BaseException withStatus(Status status) {
         this.status = status;
         return this;
+    }
+
+    public String getMessageWithLanguage(Locale locale) {
+        if(isBlank(this.messageKey)) {
+            return message;
+        }
+
+        return LanguageUtils.getLocaleMessage(this.messageKey, locale, this.args);
     }
 }
