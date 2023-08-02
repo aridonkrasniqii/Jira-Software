@@ -56,6 +56,12 @@ public class BaseException extends Exception {
         return messageKey;
     }
 
+
+    public Status getStatus() {
+        return status;
+    }
+
+
     public String getError_code() {
         return error_code;
     }
