@@ -10,11 +10,10 @@ import io.quarkus.mongodb.reactive.ReactiveMongoCollection;
 import io.smallrye.mutiny.Uni;
 import org.bson.conversions.Bson;
 
-
 import java.util.List;
 
 public class MongoUtils {
-    public <T> Uni<T> createEntity(ReactiveMongoCollection<T> collection, T entity) {
+    public static <T> Uni<T> createEntity(ReactiveMongoCollection<T> collection, T entity) {
         if (entity instanceof BaseEntity) {
             ((BaseEntity) entity).setCreatedAndUpdatedAt();
             ((BaseEntity) entity).setObjectId();
@@ -23,7 +22,7 @@ public class MongoUtils {
         return collection.insertOne(entity).onItem().transform(ignored -> entity);
     }
 
-    public <T> Uni<PaginatedEntity<T>> getEntities(ReactiveMongoCollection<T> collection, PaginationModel paginationModel, Bson filter) {
+    public static <T> Uni<PaginatedEntity<T>> getEntities(ReactiveMongoCollection<T> collection, PaginationModel paginationModel, Bson filter) {
         List<Bson> pipeline = List.of(); // TODO: implement aggregation pipeline
 
         Uni<Long> numberOfDocuments = countDocuments(collection);
@@ -41,15 +40,11 @@ public class MongoUtils {
             );
     }
 
-    public <T> Uni<Long> countDocuments(ReactiveMongoCollection<T> collection) {
+    public static <T> Uni<Long> countDocuments(ReactiveMongoCollection<T> collection) {
         return collection.countDocuments();
     }
 
-    public int countPages(int numberOfDocuments, int pageSize) {
-        return (int) Math.ceil((double) numberOfDocuments / pageSize);
-    }
-
-    public <T> PaginatedEntity<T> paginatedEntity(List<T> data, int numberOfDocuments, PaginationModel paginationModel) {
+    public static <T> PaginatedEntity<T> paginatedEntity(List<T> data, int numberOfDocuments, PaginationModel paginationModel) {
         return new PaginatedEntity<>(
             data,
             numberOfDocuments,
@@ -59,12 +54,11 @@ public class MongoUtils {
         );
     }
 
-
-    public <T> Uni<T> getEntity(ReactiveMongoCollection<T> collection, Bson filter) {
+    public static <T> Uni<T> getEntity(ReactiveMongoCollection<T> collection, Bson filter) {
         return collection.find(filter).toUni();
     }
 
-    public <T> Uni<T> updateEntity(ReactiveMongoCollection<T> collection, Bson filter, T entity) {
+    public static <T> Uni<T> updateEntity(ReactiveMongoCollection<T> collection, Bson filter, T entity) {
         if (entity instanceof BaseEntity) {
             ((BaseEntity) entity).setUpdatedAt();
         }
@@ -72,12 +66,15 @@ public class MongoUtils {
         return collection.findOneAndReplace(filter, entity, new FindOneAndReplaceOptions().returnDocument(ReturnDocument.AFTER));
     }
 
-    public <T> Uni<T> updateEntity(ReactiveMongoCollection<T> collection, Bson filter, Bson update) {
+    public static <T> Uni<T> updateEntity(ReactiveMongoCollection<T> collection, Bson filter, Bson update) {
         return collection.findOneAndUpdate(filter, update, new FindOneAndUpdateOptions().returnDocument(ReturnDocument.AFTER));
     }
 
-
-    public <T> Uni<T> deleteEntity(ReactiveMongoCollection<T> collection, Bson filter) {
+    public static <T> Uni<T> deleteEntity(ReactiveMongoCollection<T> collection, Bson filter) {
         return collection.findOneAndDelete(filter);
+    }
+
+    public static int countPages(int numberOfDocuments, int pageSize) {
+        return (int) Math.ceil((double) numberOfDocuments / pageSize);
     }
 }
