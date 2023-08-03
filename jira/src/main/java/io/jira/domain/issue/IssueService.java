@@ -31,12 +31,11 @@ public class IssueService {
 
     private Uni<Issue> createIssue(CreateIssue createIssue) {
         return switch (createIssue.getType()) {
-            case "EPIC" -> epicService.createEpic(createIssue);
-            case "SUBTASK" -> childIssuesService.createSubtask(createIssue);
+            case EPIC -> epicService.createEpic(createIssue);
+            case SUBTASK -> childIssuesService.createSubtask(createIssue);
             default -> childIssuesService.createIssue(createIssue);
         };
     }
-
 
     public Uni<PaginatedEntity<Issue>> getAll(PaginationModel paginationModel, IssueFilter issueFilter) {
         return issueRepository.getAll(paginationModel, issueFilter);
