@@ -1,9 +1,9 @@
 package io.jira.domain.issue.models;
 
 public class Subtask extends Issue {
-    private EpicReference parentIssue;
+    private IssueReference parentIssue;
 
-    public Subtask(Issue issue, EpicReference parentIssue) {
+    public Subtask(Issue issue, IssueReference parentIssue) {
         super(issue);
         this.parentIssue = parentIssue;
     }
@@ -13,11 +13,11 @@ public class Subtask extends Issue {
     }
 
 
-    public EpicReference getParentIssue() {
+    public IssueReference getParentIssue() {
         return parentIssue;
     }
 
-    public void setParentIssue(EpicReference parentIssue) {
+    public void setParentIssue(IssueReference parentIssue) {
         this.parentIssue = parentIssue;
     }
 }

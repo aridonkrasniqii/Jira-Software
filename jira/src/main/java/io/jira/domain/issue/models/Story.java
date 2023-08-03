@@ -1,22 +1,22 @@
 package io.jira.domain.issue.models;
 
 public class Story extends Issue {
-    private EpicReference parentIssue;
+    private EpicReference epic;
 
-    public Story(Issue issue, EpicReference parentIssue) {
+    public Story(Issue issue, EpicReference epic) {
         super(issue);
-        this.parentIssue = parentIssue;
+        this.epic = epic;
     }
 
     public Story(Issue issue) {
         super(issue);
     }
 
-    public EpicReference getParentIssue() {
-        return parentIssue;
+    public EpicReference getEpic() {
+        return epic;
     }
 
-    public void setParentIssue(EpicReference parentIssue) {
-        this.parentIssue = parentIssue;
+    public void setEpic(EpicReference epic) {
+        this.epic = epic;
     }
 }

@@ -3,7 +3,6 @@ package io.jira.domain.issue.dtos;
 import io.jira.common.models.NamedEntity;
 import io.jira.common.models.enums.IssuePriority;
 import io.jira.common.models.enums.IssueType;
-import io.jira.domain.issue.models.Epic;
 import io.jira.domain.issue.models.EpicReference;
 import io.jira.domain.issue.models.IssueReference;
 import io.jira.domain.sprint.SprintReference;
@@ -29,7 +28,7 @@ public class CreateIssue {
     public UserReference reporter;
     public SprintReference sprint;
     public NamedEntity status;
-    public EpicReference parentIssue;
+    public IssueReference parentIssue;
     public List<IssueReference> childIssues;
 
 
@@ -93,7 +92,7 @@ public class CreateIssue {
         return status;
     }
 
-    public EpicReference getParentIssue() {
+    public IssueReference getParentIssue() {
         return parentIssue;
     }
 

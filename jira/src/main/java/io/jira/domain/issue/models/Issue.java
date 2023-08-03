@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Issue {
+
     public static final String ID_FIELD = "_id";
     public static final String NAME_FIELD = "name";
     public static final String SUMMARY_FIELD = "summary";
@@ -40,6 +41,7 @@ public class Issue {
     public static final String TEAM_ID_FIELD = "team._id";
     public static final String FIELD_SEARCH = "summary";
     public static final String EPIC_NAME_FIELD = "epic._name";
+
 
     private String name;
     private String summary;
