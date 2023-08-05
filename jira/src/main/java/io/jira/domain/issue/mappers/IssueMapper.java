@@ -1,7 +1,9 @@
 package io.jira.domain.issue.mappers;
 
 import io.jira.domain.issue.dtos.CreateIssue;
+import io.jira.domain.issue.dtos.CreateSubtask;
 import io.jira.domain.issue.dtos.UpdateIssue;
+import io.jira.domain.issue.dtos.UpdateSubtask;
 import io.jira.domain.issue.models.*;
 
 import static io.jira.common.utils.Utils.notNull;
@@ -61,16 +63,15 @@ public class IssueMapper {
         return bug;
     }
 
-    public static Issue mapToSubtask(CreateIssue createIssue) {
-        Subtask subtask = new Subtask(mapToIssue(createIssue));
+    public static Issue mapToSubtask(CreateSubtask createSubtask) {
+        Subtask subtask = new Subtask(mapToIssue(createSubtask));
 
-        if(notNull(createIssue.getParentIssue())) {
-            subtask.setParentIssue(createIssue.getParentIssue());
+        if(notNull(createSubtask.getParentIssue())) {
+            subtask.setParentIssue(createSubtask.getParentIssue());
         }
 
         return subtask;
     }
-
 
 
     private static Issue mapToIssue(CreateIssue createIssue) {
@@ -149,11 +150,11 @@ public class IssueMapper {
         return bug;
     }
 
-    public static Issue mapToSubtask(UpdateIssue updateIssue) {
-        Subtask subtask = new Subtask(mapToIssue(updateIssue));
+    public static Issue mapToSubtask(UpdateSubtask updateSubtask) {
+        Subtask subtask = new Subtask(mapToIssue(updateSubtask));
 
-        if(notNull(updateIssue.getParentIssue())) {
-            subtask.setParentIssue(updateIssue.getParentIssue());
+        if(notNull(updateSubtask.getParentIssue())) {
+            subtask.setParentIssue(updateSubtask.getParentIssue());
         }
 
         return subtask;
@@ -179,5 +180,13 @@ public class IssueMapper {
         issue.setStatus(updateIssue.getStatus());
 
         return issue;
+    }
+
+    public static IssueReference mapToIssueReference(CreateSubtask createSubtask) {
+
+    }
+
+    public static IssueReference mapToIssueReference(UpdateSubtask updateSubtask) {
+
     }
 }
