@@ -6,4 +6,5 @@ public class ExceptionMessageKey {
 
     public static final String ENTITY_NOT_CREATED = "entity.not.created";
     public static final String ENTITY_NOT_UPDATED = "entity.not.updated";
+    public static final String ENTITY_NOT_DELETED = "entity.not.deleted";
     ;}

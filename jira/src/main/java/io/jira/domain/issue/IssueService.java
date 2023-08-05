@@ -4,7 +4,7 @@ import io.jira.common.exceptions.ExceptionMessageKey;
 import io.jira.common.models.PaginatedEntity;
 import io.jira.common.models.PaginationModel;
 import io.jira.common.models.enums.IssueType;
-import io.jira.domain.confluencepage.ConfluencePage;
+import io.jira.domain.confluencepage.models.ConfluencePage;
 import io.jira.domain.issue.dtos.*;
 import io.jira.domain.issue.exceptions.IssueException;
 import io.jira.domain.issue.mappers.IssueMapper;
@@ -103,7 +103,7 @@ public class IssueService {
             .flatMap(subtask -> onUniHandler(subtask, IssueException.SUBTASK_ENTITY))
             .flatMap(deleted -> issueRepository.deleteSubtaskToIssue(issueId, taskId))
             .onItem().ifNull().failWith(() ->
-                new IssueException(ExceptionMessageKey.ENTITY_NOT_DELETED, Response.Status.BAD_REQUEST))
+                new IssueException(ExceptionMessageKey.ENTITY_NOT_DELETED, Response.Status.BAD_REQUEST));
     }
 
     /** ENDREGION **/
@@ -139,7 +139,7 @@ public class IssueService {
     public Uni<LinkedIssue> updateLinkedIssue(String issueId, String linkedIssueId, @Valid UpdateLinkedIssue updateLinkedIssue) {
         LinkedIssue linkedIssue = IssueMapper.mapToLinkedIssue(updateLinkedIssue);
 
-        return updateLinkedIssue(issueId, linkedIssueId, linkedIssue)
+        return updateLinkedIssueToIssue(issueId, linkedIssueId, linkedIssue)
             .flatMap(updated -> onUniHandler(updated, IssueException.LINKED_ISSUE_ENTITY))
             .flatMap(ignored -> updateReversedLinkedIssueToIssue(linkedIssueId, issueId, linkedIssue))
             .onItem().ifNull().failWith(() ->
@@ -147,7 +147,7 @@ public class IssueService {
     }
 
 
-    private Uni<LinkedIssue> updateLinkedIssueToIssue(String issueId, String linkedIssueId) {
+    private Uni<LinkedIssue> updateLinkedIssueToIssue(String issueId, String linkedIssueId, LinkedIssue linkedIssue) {
         return null;
     }
 
