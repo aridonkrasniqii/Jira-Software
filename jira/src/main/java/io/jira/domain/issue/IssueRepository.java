@@ -4,6 +4,7 @@ import com.mongodb.client.model.Filters;
 import io.jira.common.models.PaginatedEntity;
 import io.jira.common.models.PaginationModel;
 import io.jira.domain.issue.models.Issue;
+import io.jira.domain.issue.models.IssueReference;
 import io.jira.domain.issue.wrappers.IssueFilter;
 import io.jira.mongo.MongoClientWrapper;
 import io.jira.mongo.MongoCollections;
@@ -37,6 +38,26 @@ public class IssueRepository {
 
     public Uni<Issue> delete(String issueId) {
         return MongoUtils.deleteEntity(getCollection(), Filters.eq(Issue.ID_FIELD, issueId));
+    }
+
+    public Uni<Issue> addSubtaskToIssue(String issueId, IssueReference issueReference) {
+        return null;
+        // TODO:
+    }
+
+    public Uni<PaginatedEntity<Issue>> getAllSubtasks(String issueId, PaginationModel paginationModel) {
+        return null;
+        // TODO:
+    }
+
+    public Uni<Issue> updateSubtaskToIssue(String issueId, String subtaskId, IssueReference issueReference) {
+        return null;
+        // TODO:
+    }
+
+    public Uni<Issue> deleteSubtaskToIssue(String issueId, String subtaskId) {
+        return null;
+        // TODO:
     }
 
     public ReactiveMongoCollection<Issue> getCollection() {

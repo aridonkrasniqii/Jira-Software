@@ -21,4 +21,8 @@ public class Utils {
     public static boolean notNull(Object value) {
         return value != null;
     }
+
+    public static boolean not(boolean condition) {
+        return !condition;
+    }
 }

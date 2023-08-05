@@ -3,7 +3,7 @@ package io.jira.domain.issue.models;
 import io.jira.common.models.NamedEntity;
 import io.jira.common.models.enums.IssuePriority;
 import io.jira.common.models.enums.IssueType;
-import io.jira.domain.confluencepage.ConfluencePage;
+import io.jira.domain.confluencepage.models.ConfluencePage;
 import io.jira.domain.fileattachment.FileAttachment;
 import io.jira.domain.sprint.SprintReference;
 import io.jira.domain.user.UserReference;
