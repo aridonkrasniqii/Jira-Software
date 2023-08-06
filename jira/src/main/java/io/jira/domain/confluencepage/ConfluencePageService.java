@@ -1,6 +1,5 @@
 package io.jira.domain.confluencepage;
 
-
 import io.jira.common.exceptions.ExceptionMessageKey;
 import io.jira.common.models.PaginatedEntity;
 import io.jira.common.models.PaginationModel;

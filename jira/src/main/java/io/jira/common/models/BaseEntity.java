@@ -5,7 +5,7 @@ import org.bson.types.ObjectId;
 import java.util.Date;
 
 public class BaseEntity {
-
+    public static final String ID_FIELD = "_id";
     public static final String CREATED_AT_FIELD = "createdAt";
     public static final String UPDATED_AT_FIELD = "updatedAt";
 

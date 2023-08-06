@@ -1,6 +1,5 @@
 package io.jira.domain.confluencepage;
 
-
 import io.jira.common.models.PaginatedEntity;
 import io.jira.common.models.PaginationModel;
 import io.jira.domain.confluencepage.dtos.CreateConfluencePage;

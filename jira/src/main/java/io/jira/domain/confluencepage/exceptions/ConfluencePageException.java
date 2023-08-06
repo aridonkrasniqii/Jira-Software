@@ -1,7 +1,6 @@
 package io.jira.domain.confluencepage.exceptions;
 
 import io.jira.common.exceptions.BaseException;
-import io.jira.domain.confluencepage.models.ConfluencePage;
 import jakarta.ws.rs.core.Response;
 
 public class ConfluencePageException extends BaseException {
