@@ -1,5 +1,6 @@
 package io.jira.domain.issue.models;
 
+import io.jira.common.models.BaseEntity;
 import io.jira.common.models.NamedEntity;
 import io.jira.common.models.enums.IssuePriority;
 import io.jira.common.models.enums.IssueType;
@@ -12,7 +13,7 @@ import io.jira.domain.weblink.WebLink;
 import java.util.Date;
 import java.util.List;
 
-public class Issue {
+public class Issue extends BaseEntity {
 
     public static final String ID_FIELD = "_id";
     public static final String NAME_FIELD = "name";

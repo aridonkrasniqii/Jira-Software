@@ -2,6 +2,7 @@ package io.jira.mongo;
 
 import com.mongodb.client.model.FindOneAndReplaceOptions;
 import com.mongodb.client.model.FindOneAndUpdateOptions;
+import com.mongodb.client.model.IndexModel;
 import com.mongodb.client.model.ReturnDocument;
 import io.jira.common.models.BaseEntity;
 import io.jira.common.models.PaginatedEntity;
@@ -76,5 +77,10 @@ public class MongoUtils {
 
     public static int countPages(int numberOfDocuments, int pageSize) {
         return (int) Math.ceil((double) numberOfDocuments / pageSize);
+    }
+
+
+    public static <T> Uni<String> createIndex(ReactiveMongoCollection<T> collection, IndexModel indexModel) {
+        return collection.createIndex(indexModel.getKeys(), indexModel.getOptions());
     }
 }
