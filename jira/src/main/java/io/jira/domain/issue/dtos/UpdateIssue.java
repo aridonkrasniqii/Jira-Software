@@ -5,7 +5,6 @@ import io.jira.common.models.enums.IssuePriority;
 import io.jira.common.models.enums.IssueType;
 import io.jira.domain.issue.models.EpicReference;
 import io.jira.domain.issue.models.IssueReference;
-import io.jira.domain.sprint.SprintReference;
 import io.jira.domain.user.UserReference;
 
 import java.util.Date;

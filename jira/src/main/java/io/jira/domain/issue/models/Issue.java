@@ -6,7 +6,6 @@ import io.jira.common.models.enums.IssuePriority;
 import io.jira.common.models.enums.IssueType;
 import io.jira.domain.confluencepage.models.ConfluencePage;
 import io.jira.domain.fileattachment.FileAttachment;
-import io.jira.domain.sprint.SprintReference;
 import io.jira.domain.user.UserReference;
 import io.jira.domain.weblink.WebLink;
 
