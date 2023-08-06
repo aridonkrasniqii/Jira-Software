@@ -6,6 +6,9 @@ import java.util.Date;
 
 public class BaseEntity {
 
+    public static final String CREATED_AT_FIELD = "createdAt";
+    public static final String UPDATED_AT_FIELD = "updatedAt";
+
     public String id;
     public Date createdAt;
     public Date updatedAt;
