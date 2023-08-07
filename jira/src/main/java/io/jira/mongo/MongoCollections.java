@@ -7,4 +7,6 @@ public class MongoCollections {
     public static final String SPRINT = "sprint";
     public static final String WEBLINK = "weblink";
     public static final String USER = "user";
+    public static final String COMMENTS = "comments";
+    public static final String TEAM = "team";
 }
