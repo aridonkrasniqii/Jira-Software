@@ -2,7 +2,6 @@ package io.jira.domain.project.models;
 
 
 import io.jira.common.models.BaseEntity;
-import io.jira.domain.user.UserReference;
 
 import java.util.List;
 

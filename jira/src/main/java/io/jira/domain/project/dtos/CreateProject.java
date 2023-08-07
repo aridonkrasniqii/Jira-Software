@@ -1,6 +1,5 @@
 package io.jira.domain.project.dtos;
 
-import io.jira.domain.user.UserReference;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
