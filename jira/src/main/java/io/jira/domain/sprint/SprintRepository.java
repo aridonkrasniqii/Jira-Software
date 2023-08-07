@@ -14,7 +14,6 @@ import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
-import static com.mongodb.client.model.Filters.eq;
 
 @ApplicationScoped
 public class SprintRepository {
